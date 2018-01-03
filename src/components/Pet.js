@@ -3,7 +3,7 @@ import React from 'react';
 class Pet extends React.Component {
     render(){
         return(
-            <div>Pet</div>
+            <div>   Pet Sprite: Egg, Pet or Skull</div>
         )
     }
 }
