@@ -14,8 +14,8 @@ class App extends Component {
 
     return (
       <div className="App">
-          <Pet pet={pet}/>
           <Actions/>
+          <Pet pet={pet}/>
           <Stats/>
       </div>
     );
