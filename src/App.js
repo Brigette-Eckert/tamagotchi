@@ -6,9 +6,15 @@ import './styles/App.css';
 
 class App extends Component {
   render() {
+
+      let pet = {
+          name: "Bun",
+          status: "groom",
+      };
+
     return (
       <div className="App">
-          <Pet/>
+          <Pet pet={pet}/>
           <Actions/>
           <Stats/>
       </div>
