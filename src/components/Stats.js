@@ -10,7 +10,7 @@ class Stats extends React.Component {
                 <div> 5 </div>
                 <div className="stats__subcontainer">
                     <h4> Hunger (last time since feed- decrease with time) </h4>
-                    <ProgressBar striped bsStyle="danger" active now={50} label="Hunger"/>
+                    <ProgressBar striped bsStyle="danger" active now={hunger} label="Hunger"/>
                 </div>
                 <div className="stats__subcontainer">
                     <h4> Happiness (last time since played- decrease with time) </h4>
