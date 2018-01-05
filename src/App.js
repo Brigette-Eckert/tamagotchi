@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import Pet from './components/Pet.js';
-import Actions from './components/Actions';
-import Stats from './components/Stats';
+import PetContainer from "./components/PetContainer";
 import './styles/App.css';
 
+const PETS = [{
+  name: "Bun",
+  species: "Bunny"
+}, {
+  name: "Pusheen",
+  species: "Cat"
+}, {
+  name: "Biscuit",
+  species: "Puppy"
+}];
+
+
 class App extends Component {
+    //state active pets
   render() {
-
-      let pet = {
-          name: "Bun",
-          status: "groom",
-      };
-
     return (
       <div className="App">
-          <Actions/>
-          <Pet pet={pet}/>
-          <Stats/>
+        <PetContainer pet={PETS[0]}/>
       </div>
     );
   }

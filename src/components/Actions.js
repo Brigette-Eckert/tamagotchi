@@ -9,17 +9,17 @@ class Actions extends React.Component{
 
             <div>
                 <ButtonToolbar id="actions__button_bar">
-                    <Button bsSize="large" bsStyle="primary"> Home</Button>
-                    <Button bsSize="large" bsStyle="danger">Feed</Button>
-                    <Button bsSize="large" bsStyle="info">Play</Button>
-                    <Button bsSize="large" bsStyle="warning">Groom</Button>
-                    <Button bsSize="large" bsStyle="success"> Sleep </Button>
-                    <DropdownButton bsSize="large" bsStyle="link" className="actions__switch" title="Switch Pet">
+                    <Button onClick={console.log("visit")} bsSize="large" bsStyle="primary"> Visit</Button>
+                    <Button onClick={console.log("feed")} bsSize="large" bsStyle="danger">Feed</Button>
+                    <Button onClick={console.log("play")} bsSize="large" bsStyle="info">Play</Button>
+                    <Button onClick={console.log("groom")} bsSize="large" bsStyle="warning">Groom</Button>
+                    <Button onClick={console.log("sleep")}bsSize="large" bsStyle="success"> Sleep </Button>
+                    <DropdownButton id="actions__dropdown_button" bsSize="large" bsStyle="link" className="actions__switch" title="Switch Pet">
                         <MenuItem>
-                            Pet2
+                            Inactive Pet1
                         </MenuItem>
                         <MenuItem>
-                            Pet3
+                            Inactive Pet2
                         </MenuItem>
                     </DropdownButton>
                 </ButtonToolbar>
@@ -30,4 +30,5 @@ class Actions extends React.Component{
 }
 
 export default Actions;
-
+//TODO: Set button to switch state according to current
+//TODO: Set switch to correlate to pet Array;= - Bun = PETS[0], Pusheen = PETS[1], Biscuit = PETS[2]

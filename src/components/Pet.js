@@ -4,12 +4,11 @@ import '../styles/components/Pet.css'
 
 
 class Pet extends React.Component {
+
     render(){
-        let { name } = this.props.pet;
-        let { status } = this.props.pet;
+        let { name, status } = this.props;
         return(
             <div>
-                <h3>{name}</h3>
                 <div className="pet__avatar"><img src={`/img/${name}/${status}.png`}/></div>
             </div>
         )
@@ -17,7 +16,8 @@ class Pet extends React.Component {
 }
 
 Pet.propTypes = {
-    pet: PropTypes.object
+    name: PropTypes.string,
+    status: PropTypes.string
 };
 
 export default Pet;
