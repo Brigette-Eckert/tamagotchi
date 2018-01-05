@@ -27,10 +27,28 @@ class PetContainer extends Component {
     this.setPetStatus = this.setPetStatus.bind(this);
   }
 
+  //TODO: Update progress bar based on new state - status is working but display not updating
+  //TODO: Pass in fullness, happpiness etc into Stats instead of 'pet'
   setPetStatus(status){
-    this.setState({
+    let newState = {
       status: status
-    });
+    };
+    switch(status){
+      case "feed":
+        newState.fullness = this.state.fullness + 5;
+        break;
+      case "play":
+        newState.happiness = this.state.happiness + 5;
+        break;
+      case "groom":
+        newState.hygiene = this.state.hygiene + 5;
+        break;
+      case "sleep":
+        newState.energy = this.state.energy + 5;
+
+    }
+    console.log(newState);
+    this.setState(newState);
   }
 
 

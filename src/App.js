@@ -7,10 +7,10 @@ const PETS = [{
   species: "Bunny"
 }, {
   name: "Pusheen",
-  species: "Cat"
+  species: "Delightfully Chubby Cat"
 }, {
   name: "Biscuit",
-  species: "Puppy"
+  species: "Corgi"
 }];
 
 
@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <PetContainer pet={PETS[0]}/>
+        <PetContainer pet={PETS[1]}/>
       </div>
     );
   }
