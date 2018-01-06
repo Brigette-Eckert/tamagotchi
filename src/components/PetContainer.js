@@ -54,14 +54,14 @@ class PetContainer extends Component {
 
 
   render() {
-    let { name, species, status, age } = this.state;
+    let { name, species, status, age, fullness, happiness, hygiene, energy } = this.state;
     let { pet } = this.props;
       return (
           <div className="App">
               <Actions setPetStatus={this.setPetStatus}/>
               <Info name={name} species={species} age={age}/>
               <Pet name={name} status={status}/>
-              <Stats pet={pet}/>
+              <Stats fullness={fullness} happiness = {happiness} hygiene = {hygiene} energy = {energy}/>
           </div>
       );
   }
