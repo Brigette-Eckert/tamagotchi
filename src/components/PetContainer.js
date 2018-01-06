@@ -4,13 +4,12 @@ import Moment from 'moment';
 import Pet from './Pet.js';
 import Actions from './Actions.js';
 import Stats from './Stats.js';
-import Info from './Info.js'
+import Info from './Info.js';
 import '../styles/components/PetContainer.css';
 
 class PetContainer extends Component {
   constructor(props){
     super(props);
-    console.log(this.props);
     this.state ={
       name: this.props.pet.name,
       species: this.props.pet.species,
@@ -57,7 +56,7 @@ class PetContainer extends Component {
     let { name, species, status, age, fullness, happiness, hygiene, energy } = this.state;
     let { pet } = this.props;
       return (
-          <div className="App">
+          <div className="PetContainer">
               <Actions setPetStatus={this.setPetStatus}/>
               <Info name={name} species={species} age={age}/>
               <Pet name={name} status={status}/>
