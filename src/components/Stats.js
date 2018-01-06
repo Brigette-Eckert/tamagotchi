@@ -6,24 +6,24 @@ import '../styles/components/Stats.css';
 
 class Stats extends React.Component {
     render(){
-        // let { fullness, happiness, hygiene, energy } = this.state;
+        let { fullness, happiness, hygiene, energy } = this.props;
         return(
             <div className="stats__main">
                 <div className="stats__subcontainer">
                     <h4> Fullness(last time since feed- decrease with time) </h4>
-                    <ProgressBar striped bsStyle="danger" active now={50} label="Fullness"/>
+                    <ProgressBar striped bsStyle="danger" active now={fullness} label="Fullness"/>
                 </div>
                 <div className="stats__subcontainer">
                     <h4> Happiness (last time since played- decrease with time) </h4>
-                    <ProgressBar striped bsStyle="info" active now={50} label="Happiness"/>
+                    <ProgressBar striped bsStyle="info" active now={happiness} label="Happiness"/>
                 </div>
                 <div className="stats__subcontainer">
                     <h4> Hygiene (last time since groomed- decrease with time) </h4>
-                    <ProgressBar striped bsStyle="warning" active now={50} label="Hygiene"/>
+                    <ProgressBar striped bsStyle="warning" active now={hygiene} label="Hygiene"/>
                 </div>
                 <div className="stats__subcontainer">
                     <h4> Energy (last time since put to sleep decrease with time) </h4>
-                    <ProgressBar striped bsStyle="success" active now={75} label="Energy"/>
+                    <ProgressBar striped bsStyle="success" active now={energy} label="Energy"/>
                 </div>
 
             </div>
@@ -39,4 +39,3 @@ export default Stats;
 
 //TODO: Add stat decrease 1 point per hr
 //TODO: if any stat ==  0 change state to dead
-//TODO: When action taken - add 10 points per the correlating stat

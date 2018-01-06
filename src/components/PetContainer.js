@@ -72,3 +72,5 @@ Info.propTypes = {
 };
 
 export default PetContainer;
+
+//TODO: Add min and max 0 and 100 to stat numbers
