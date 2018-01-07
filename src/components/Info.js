@@ -7,8 +7,8 @@ class Info extends React.Component{
         let { name, species, age } = this.props;
         return(
             <div>
-                <h2> {name} the {species}</h2>
-                <h4> Age:  {age}  </h4>
+                <h1> {name} the {species}</h1>
+                <h3> Age:  {age}  </h3>
 
             </div>)
     }

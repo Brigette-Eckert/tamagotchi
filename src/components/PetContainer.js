@@ -5,6 +5,7 @@ import Pet from './Pet.js';
 import Actions from './Actions.js';
 import Stats from './Stats.js';
 import Info from './Info.js';
+import Dead from './Dead.js';
 import '../styles/components/PetContainer.css';
 
 class PetContainer extends Component {
@@ -19,15 +20,14 @@ class PetContainer extends Component {
       hygiene: 50,
       energy: 50,
       hatchDate: new Date(),
-      age: 3
+      age: 3,
+      alive: true
       //now: new Moment(new Date()),
       //age: hatchDate.from(now, true),
     };
     this.setPetStatus = this.setPetStatus.bind(this);
   }
 
-  //TODO: Update progress bar based on new state - status is working but display not updating
-  //TODO: Pass in fullness, happpiness etc into Stats instead of 'pet'
   setPetStatus(status){
     let newState = {
       status: status
@@ -53,14 +53,16 @@ class PetContainer extends Component {
 
 
   render() {
-    let { name, species, status, age, fullness, happiness, hygiene, energy } = this.state;
+    let { name, species, status, age, fullness, happiness, hygiene, energy, alive } = this.state;
     let { pet } = this.props;
       return (
           <div className="PetContainer">
-              <Actions setPetStatus={this.setPetStatus}/>
-              <Info name={name} species={species} age={age}/>
-              <Pet name={name} status={status}/>
-              <Stats fullness={fullness} happiness = {happiness} hygiene = {hygiene} energy = {energy}/>
+            <Actions setPetStatus={this.setPetStatus}/>
+            {/*TODO: Hide/Show Dead/Pet based on status or alive boolean*/}
+            { !alive && <Dead/> }
+            { !!alive && <Info name={name} species={species} age={age}/>}
+            { !!alive && <Pet name={name} status={status}/> }
+            <Stats fullness={fullness} happiness = {happiness} hygiene = {hygiene} energy = {energy}/>
           </div>
       );
   }

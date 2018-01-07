@@ -7,8 +7,8 @@ class Dead extends React.Component {
   render(){
     return(
       <div className='dead'>
-        <img src={'img/dead.png'}/>
         <h1> Pet Died of Cause of Death</h1>
+        <img src={'img/dead.png'}/>
         <Button bsSize="large" bsStyle="danger"> Restart </Button>
       </div>
     )
