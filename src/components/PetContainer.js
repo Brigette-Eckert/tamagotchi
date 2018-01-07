@@ -21,11 +21,12 @@ class PetContainer extends Component {
       energy: 50,
       hatchDate: new Date(),
       age: 3,
-      alive: true
+      alive: false
       //now: new Moment(new Date()),
       //age: hatchDate.from(now, true),
     };
     this.setPetStatus = this.setPetStatus.bind(this);
+    this.toggleAlive = this.toggleAlive.bind(this);
   }
 
   setPetStatus(status){
@@ -46,11 +47,14 @@ class PetContainer extends Component {
         newState.energy = this.state.energy + 5;
 
     }
-    console.log(newState);
+
     this.setState(newState);
   }
 
 
+  toggleAlive(){
+    this.setState({alive: !this.state.alive});
+  }
 
   render() {
     let { name, species, status, age, fullness, happiness, hygiene, energy, alive } = this.state;
@@ -59,9 +63,9 @@ class PetContainer extends Component {
           <div className="PetContainer">
             <Actions setPetStatus={this.setPetStatus}/>
             {/*TODO: Hide/Show Dead/Pet based on status or alive boolean*/}
-            { !alive && <Dead/> }
+            { !alive && <Dead name={name} toggleAlive={this.toggleAlive}/> }
             { !!alive && <Info name={name} species={species} age={age}/>}
-            { !!alive && <Pet name={name} status={status}/> }
+            { !!alive && <Pet name={name} status={status} toggleAlive={this.toggleAlive}/> }
             <Stats fullness={fullness} happiness = {happiness} hygiene = {hygiene} energy = {energy}/>
           </div>
       );
@@ -75,4 +79,3 @@ PetContainer.propTypes = {
 export default PetContainer;
 
 //TODO: Add min and max 0 and 100 to stat numbers
-//TODO: Display alive or dead- hide everything  / hide action when dead -
