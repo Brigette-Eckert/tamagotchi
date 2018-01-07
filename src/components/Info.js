@@ -9,6 +9,7 @@ class Info extends React.Component{
             <div>
                 <h2> {name} the {species}</h2>
                 <h4> Age:  {age}  </h4>
+
             </div>)
     }
 }

@@ -66,10 +66,11 @@ class PetContainer extends Component {
   }
 }
 
-Info.propTypes = {
+PetContainer.propTypes = {
   pet: PropTypes.object
 };
 
 export default PetContainer;
 
 //TODO: Add min and max 0 and 100 to stat numbers
+//TODO: Display alive or dead- hide everything  / hide action when dead -

@@ -1,13 +1,14 @@
 import React from 'react';
 import '../styles/components/Egg.css';
+import {Button} from 'react-bootstrap';
 
 class Egg extends React.Component {
   render(){
+    let {name} = this.props;
     return(
       <div className="eggs">
-        <img src={'img/Bun/egg.png'}/>
-        <img src={'img/Pusheen/egg.png'}/>
-        <img src={'img/Biscuit/egg.png'}/>
+        <img src={`img/${name}/egg.png`}/>
+        <Button bsSize="large" bsStyle="success"> Pick Me! </Button>
       </div>
       )
   }
