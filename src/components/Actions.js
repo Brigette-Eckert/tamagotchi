@@ -14,7 +14,7 @@ class Actions extends React.Component{
           <Button onClick={()=>{this.props.setPetStatus("groom")}} bsSize="large" bsStyle="warning">Groom</Button>
           <Button onClick={()=>{this.props.setPetStatus("sleep")}}bsSize="large" bsStyle="success"> Sleep </Button>
         </ButtonToolbar>
-        <Button id="actions__reset" bsSize="large" bsStyle="danger">
+        <Button id="actions__reset" bsSize="large" bsStyle="black">
           Reset
         </Button>
       </div>
@@ -23,4 +23,3 @@ class Actions extends React.Component{
 }
 
 export default Actions;
-//TODO: Set switch to correlate to pet Array;= - Bun = PETS[0], Pusheen = PETS[1], Biscuit = PETS[2]

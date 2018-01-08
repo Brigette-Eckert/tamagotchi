@@ -9,9 +9,10 @@ Tomgotchi built using ReactJS as part of self study following Epicodus curriculu
 
  * Practiced using ReactJS 
  
-*  Praticed using React Bootstrap 
+*  Practiced using React Bootstrap 
 
 ## User Stories
+* As a user I can choose one of three pets to care for
 
 *  As a user I can check in on my pet
 
