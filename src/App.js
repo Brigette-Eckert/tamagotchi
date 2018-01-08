@@ -20,16 +20,18 @@ class App extends Component {
     //state active pets
   constructor(props){
     super(props);
-    // this.state = {
-    //   status: "alive"
-    // }
+    this.state = {
+      firstVisit: false,
+      activePet: null,
+    }
   }
   render() {
+    let {firstVisit} = this.state;
     return (
       <div className="App">
-        {/*TODO: Use State to display Alive/Egg*/}
-        <EggContainer pets={PETS}/>
-        <PetContainer pet={PETS[1]}/>
+        {/*TODO: Use State to display Pet/Egg*/}
+        { !!firstVisit && <EggContainer pets={PETS}/> }
+        { !firstVisit && <PetContainer pet={PETS[1]}/> }
       </div>
     );
   }

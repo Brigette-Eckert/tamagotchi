@@ -21,7 +21,7 @@ class PetContainer extends Component {
       energy: 50,
       hatchDate: new Date(),
       age: 3,
-      alive: false
+      alive: true
       //now: new Moment(new Date()),
       //age: hatchDate.from(now, true),
     };

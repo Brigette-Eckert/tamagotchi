@@ -8,7 +8,7 @@ class Egg extends React.Component {
     return(
       <div className="eggs">
         <img src={`img/${name}/egg.png`}/>
-        <Button bsSize="large" bsStyle="success"> Pick Me! </Button>
+        <Button bsSize="large" bsStyle="success" className="eggs__select-btn"> Pick Me! </Button>
       </div>
       )
   }

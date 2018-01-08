@@ -3,3 +3,8 @@
     width: 375px;
     padding: 25px;
 }
+
+.eggs__select-btn {
+   margin-top: 25%;
+    margin-right: -25px;
+}
