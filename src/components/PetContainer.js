@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'moment';
+// import Moment from 'moment';
 import Pet from './Pet.js';
 import Actions from './Actions.js';
 import Stats from './Stats.js';
@@ -46,6 +46,9 @@ class PetContainer extends Component {
         break;
       case "sleep":
         stat = 'energy';
+        break;
+      default:
+        stat = "fullness";
     }
 
     let current = this.state[stat];
@@ -65,7 +68,6 @@ class PetContainer extends Component {
 
   render() {
     let { name, species, status, age, fullness, happiness, hygiene, energy, alive } = this.state;
-    let { pet } = this.props;
       return (
           <div className="PetContainer">
             <Actions setPetStatus={this.setPetStatus}/>
@@ -84,4 +86,4 @@ PetContainer.propTypes = {
 
 export default PetContainer;
 
-//TODO: Add min and max 0 and 100 to stat numbers
+//TODO: Add min

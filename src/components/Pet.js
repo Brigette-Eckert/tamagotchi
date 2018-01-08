@@ -10,9 +10,9 @@ class Pet extends React.Component {
         let { name, status } = this.props;
         return(
             <div>
-                <div className="pet__avatar"><img src={`/img/${name}/${status}.png`}/></div>
+                <div className="pet__avatar"><img src={`/img/${name}/${status}.png`} alt={name}/></div>
                 {/*Kill button for testing purposes */}
-              <Button onClick={()=>{this.props.toggleAlive()}} bsSize="large" bsStyle="danger"> Kill :( </Button>
+              <Button onClick={()=>{this.props.toggleAlive()}} bsSize="large" bsStyle="danger"> Play Dead (Totally not real :-D ) </Button>
             </div>
         )
     }

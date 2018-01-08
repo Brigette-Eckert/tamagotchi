@@ -21,22 +21,27 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      firstVisit: false,
+      firstVisit: true,
       activePet: null,
-    }
+    };
+    this.setActivePet = this.setActivePet.bind(this);
   }
 
   // TODO: Use function to set active pet when egg selected and dropdown is used to set active pet
-  setActivePet(activePet){
-    console.log(this.activePet)
+  setActivePet(activePet, firstVisit){
+    let newState = {
+      activePet: activePet,
+      firstVisit: false
+    };
+    this.setState(newState);
   }
 
   render() {
-    let {firstVisit} = this.state;
+    let {firstVisit, activePet} = this.state;
     return (
       <div className="App">
-        { !!firstVisit && <EggContainer pets={PETS}/> }
-        { !firstVisit && <PetContainer pet={PETS[1]}/> }
+        { !!firstVisit && <EggContainer pets={PETS} setActivePet={this.setActivePet}/> }
+        { !firstVisit && <PetContainer pet={activePet}/> }
       </div>
     );
   }

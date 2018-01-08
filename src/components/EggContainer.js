@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap';
 import Egg from './Egg';
 import '../styles/components/EggContainer.css';
 
@@ -18,8 +17,9 @@ class EggContainer extends React.Component {
       <div className="eggs">
         <h1> Pick an Egg! </h1>
         { pets.map((pet, i) =>
-          <Egg name={pet.name} key={i}/>
+          <Egg name={pet.name} key={i} setActivePet={() => this.props.setActivePet(pet)}/>
          )}
+
 
       </div>
     )

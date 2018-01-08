@@ -10,7 +10,7 @@ class Dead extends React.Component {
     return(
       <div className='dead'>
         <h1> { name } Died of Cause of Death</h1>
-        <img src={'img/dead.png'}/>
+        <img src={'img/dead.png'} alt="dead pet :-("/>
         <Button onClick={()=>{this.props.toggleAlive()}} bsSize="large" bsStyle="danger"> Restart </Button>
       </div>
     )

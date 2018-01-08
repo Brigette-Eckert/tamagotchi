@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ButtonToolbar, Button, DropdownButton, MenuItem} from 'react-bootstrap'
+import {ButtonToolbar, Button} from 'react-bootstrap'
 import '../styles/components/Actions.css'
 
 class Actions extends React.Component{
@@ -13,15 +13,10 @@ class Actions extends React.Component{
           <Button onClick={()=>{this.props.setPetStatus("play")}} bsSize="large" bsStyle="info">Play</Button>
           <Button onClick={()=>{this.props.setPetStatus("groom")}} bsSize="large" bsStyle="warning">Groom</Button>
           <Button onClick={()=>{this.props.setPetStatus("sleep")}}bsSize="large" bsStyle="success"> Sleep </Button>
-          <DropdownButton id="actions__dropdown_button" bsSize="large" bsStyle="link" className="actions__switch" title="Switch Pet">
-            <MenuItem>
-              Inactive Pet1
-            </MenuItem>
-            <MenuItem>
-              Inactive Pet2
-            </MenuItem>
-          </DropdownButton>
         </ButtonToolbar>
+        <Button id="actions__reset" bsSize="large" bsStyle="danger">
+          Reset
+        </Button>
       </div>
     )
   }

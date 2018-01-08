@@ -6,7 +6,7 @@ class Egg extends React.Component {
     let {name} = this.props;
     return(
       <div className="eggs">
-        <img onClick={()=>console.log("egg selected")} src={`img/${name}/egg.png`}/>
+        <img onClick={()=>this.props.setActivePet("Bun")} src={`img/${name}/egg.png`} alt="egg"/>
       </div>
       )
   }
@@ -14,5 +14,5 @@ class Egg extends React.Component {
 
 export default Egg;
 
-//TODO: Set up state to display egg page on first visit
+
 //TODO: Set up to set state state when clicked
