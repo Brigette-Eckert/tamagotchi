@@ -31,5 +31,3 @@ EggContainer.propTypes = {
 };
 
 export default EggContainer;
-
-//TODO: Set up to set state state when clicked

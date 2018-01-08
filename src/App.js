@@ -25,9 +25,9 @@ class App extends Component {
       activePet: null,
     };
     this.setActivePet = this.setActivePet.bind(this);
+    this.resetPet = this.resetPet.bind(this);
   }
 
-  // TODO: Use function to set active pet when egg selected and dropdown is used to set active pet
   setActivePet(activePet, firstVisit){
     let newState = {
       activePet: activePet,
@@ -36,11 +36,19 @@ class App extends Component {
     this.setState(newState);
   }
 
+  resetPet(activePet, firstVisit){
+    let newState = {
+      activePet: null,
+      firstVisit: true,
+    };
+    this.setState(newState);
+  }
+
   render() {
     let {firstVisit, activePet} = this.state;
     return (
       <div className="App">
-        { !!firstVisit && <EggContainer pets={PETS} setActivePet={this.setActivePet}/> }
+        { !!firstVisit && <EggContainer pets={PETS} setActivePet={this.setActivePet} resetPet={this.resetPet}/> }
         { !firstVisit && <PetContainer pet={activePet}/> }
       </div>
     );
