@@ -16,8 +16,9 @@ class EggContainer extends React.Component {
     let {pets} = this.props;
     return(
       <div className="eggs">
-        { pets.map(pet =>
-          <Egg name={pet.name}/>
+        <h1> Pick an Egg! </h1>
+        { pets.map((pet, i) =>
+          <Egg name={pet.name} key={i}/>
          )}
 
       </div>
@@ -31,5 +32,4 @@ EggContainer.propTypes = {
 
 export default EggContainer;
 
-//TODO: Set up state to display egg page on first visit
 //TODO: Set up to set state state when clicked

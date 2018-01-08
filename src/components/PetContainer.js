@@ -33,21 +33,28 @@ class PetContainer extends Component {
     let newState = {
       status: status
     };
+    let stat;
     switch(status){
       case "feed":
-        newState.fullness = this.state.fullness + 5;
+        stat = 'fullness';
         break;
       case "play":
-        newState.happiness = this.state.happiness + 5;
+        stat = 'happiness';
         break;
       case "groom":
-        newState.hygiene = this.state.hygiene + 5;
+        stat = 'hygiene';
         break;
       case "sleep":
-        newState.energy = this.state.energy + 5;
-
+        stat = 'energy';
     }
 
+    let current = this.state[stat];
+    if(current <= 95) {
+      current += 5;
+    } else {
+      current = 100;
+    }
+    newState[stat] = current;
     this.setState(newState);
   }
 
@@ -62,7 +69,6 @@ class PetContainer extends Component {
       return (
           <div className="PetContainer">
             <Actions setPetStatus={this.setPetStatus}/>
-            {/*TODO: Hide/Show Dead/Pet based on status or alive boolean*/}
             { !alive && <Dead name={name} toggleAlive={this.toggleAlive}/> }
             { !!alive && <Info name={name} species={species} age={age}/>}
             { !!alive && <Pet name={name} status={status} toggleAlive={this.toggleAlive}/> }

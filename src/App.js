@@ -25,11 +25,16 @@ class App extends Component {
       activePet: null,
     }
   }
+
+  // TODO: Use function to set active pet when egg selected and dropdown is used to set active pet
+  setActivePet(activePet){
+    console.log(this.activePet)
+  }
+
   render() {
     let {firstVisit} = this.state;
     return (
       <div className="App">
-        {/*TODO: Use State to display Pet/Egg*/}
         { !!firstVisit && <EggContainer pets={PETS}/> }
         { !firstVisit && <PetContainer pet={PETS[1]}/> }
       </div>

@@ -2,6 +2,7 @@
     height: 375px;
     width: 375px;
     padding: 25px;
+    cursor: pointer;
 }
 
 .eggs__select-btn {
