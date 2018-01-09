@@ -37,5 +37,3 @@ Stats.propTypes = {
 
 export default Stats;
 
-//TODO: Add stat decrease 1 point per hr
-//TODO: if any stat ==  0 change state to dead

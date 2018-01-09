@@ -56,3 +56,5 @@ class App extends Component {
 }
 
 export default App;
+
+//TODO: Setup local storage to remember session info so stats don't reset every time player refreshes/leaves and comes back

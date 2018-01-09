@@ -13,6 +13,3 @@ class Egg extends React.Component {
 }
 
 export default Egg;
-
-
-//TODO: Set up to set state state when clicked

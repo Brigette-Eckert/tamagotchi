@@ -19,7 +19,7 @@ class Dead extends React.Component {
   }
 }
 //Death Screen
-//TODO: Add restart function- reset all stats to zero and reset age to now
+//TODO: Add try again function- reset all stats to 50 and reset age to now
 
 //TODO: Add Cause of Death
 
