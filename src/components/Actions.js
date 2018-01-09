@@ -32,7 +32,7 @@ class Actions extends React.Component{
             <Modal.Body>
               Are you sure you want to reset to the egg select screen? Your pet's age and statistics will all be reset.
             </Modal.Body>
-            <Modal.Footer>  <Button onClick={()=>{this.props.resetPet()}} id="actions__reset" bsSize="large" bsStyle="danger"> Reset </Button></Modal.Footer>
+            <Modal.Footer>  <Button onClick={()=>{this.props.resetPet()}} id="actions__reset" bsSize="large" bsStyle="danger">Confirm Reset </Button></Modal.Footer>
           </Modal>
         </ButtonToolbar>
       </div>

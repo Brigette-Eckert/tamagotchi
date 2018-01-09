@@ -27,6 +27,8 @@ class PetContainer extends Component {
     };
     this.setPetStatus = this.setPetStatus.bind(this);
     this.toggleAlive = this.toggleAlive.bind(this);
+    this.decreaseStats = this.decreaseStats.bind(this);
+
   }
 
   setPetStatus(status){
@@ -60,11 +62,30 @@ class PetContainer extends Component {
     newState[stat] = current;
     this.setState(newState);
   }
+//set if / else for if reaches zero to trigger death
+  decreaseStats(){
+    let newState ={
+      fullness: this.state.fullness - 1,
+      happiness: this.state.happiness - 1,
+      hygiene: this.state.hygiene - 1,
+      energy: this.state.energy - 1
+    };
+    this.setState(newState);
+
+  }
+//loose one point from each stat every five minutes
+  componentDidMount(){
+    setInterval(this.decreaseStats, 300000);
+  }
+
+
 
 
   toggleAlive(){
     this.setState({alive: !this.state.alive});
   }
+
+
 
   render() {
     let { name, species, status, age, fullness, happiness, hygiene, energy, alive } = this.state;
