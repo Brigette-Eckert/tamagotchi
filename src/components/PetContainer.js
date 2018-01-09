@@ -86,4 +86,3 @@ PetContainer.propTypes = {
 
 export default PetContainer;
 
-//TODO: Add min
