@@ -70,7 +70,7 @@ class PetContainer extends Component {
     let { name, species, status, age, fullness, happiness, hygiene, energy, alive } = this.state;
       return (
           <div className="PetContainer">
-            <Actions setPetStatus={this.setPetStatus} resetPet={this.resetPet}/>
+            <Actions setPetStatus={this.setPetStatus} resetPet={this.props.resetPet}/>
             { !alive && <Dead name={name} toggleAlive={this.toggleAlive}/> }
             { !!alive && <Info name={name} species={species} age={age}/>}
             { !!alive && <Pet name={name} status={status} toggleAlive={this.toggleAlive}/> }

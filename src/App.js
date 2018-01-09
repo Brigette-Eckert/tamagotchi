@@ -48,8 +48,8 @@ class App extends Component {
     let {firstVisit, activePet} = this.state;
     return (
       <div className="App">
-        { !!firstVisit && <EggContainer pets={PETS} setActivePet={this.setActivePet} resetPet={this.resetPet}/> }
-        { !firstVisit && <PetContainer pet={activePet}/> }
+        { !!firstVisit && <EggContainer pets={PETS} setActivePet={this.setActivePet} /> }
+        { !firstVisit && <PetContainer pet={activePet} resetPet={this.resetPet}/> }
       </div>
     );
   }
