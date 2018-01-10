@@ -15,7 +15,7 @@ class PetContainer extends Component {
       name: this.props.pet.name,
       species: this.props.pet.species,
       status: "visit",
-      fullness: 50,
+      fullness: 10,
       happiness: 50,
       hygiene: 50,
       energy: 50,
@@ -70,12 +70,18 @@ class PetContainer extends Component {
       hygiene: this.state.hygiene - 1,
       energy: this.state.energy - 1
     };
-    this.setState(newState);
+    if((this.state.fullness > 0) && (this.state.happiness > 0) && (this.state.hygiene > 0) && (this.state.energy)){
+      this.setState(newState);
+    } else {
+      console.log("dead");
+    }
+
 
   }
 //loose one point from each stat every five minutes
   componentDidMount(){
-    setInterval(this.decreaseStats, 300000);
+    setInterval(this.decreaseStats, 3000);
+    // setInterval(this.decreaseStats, 300000);
   }
 
 
@@ -92,7 +98,7 @@ class PetContainer extends Component {
       return (
           <div className="PetContainer">
             <Actions setPetStatus={this.setPetStatus} resetPet={this.props.resetPet}/>
-            { !alive && <Dead name={name} toggleAlive={this.toggleAlive}/> }
+            { !alive && <Dead name={name} toggleAlive={this.toggleAlive} resetPet={this.props.resetPet}/> }
             { !!alive && <Info name={name} species={species} age={age}/>}
             { !!alive && <Pet name={name} status={status} toggleAlive={this.toggleAlive}/> }
             <Stats fullness={fullness} happiness = {happiness} hygiene = {hygiene} energy = {energy}/>

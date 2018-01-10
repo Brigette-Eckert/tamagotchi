@@ -13,13 +13,12 @@ class Dead extends React.Component {
         <div id="dead__img">
         <img src={'img/dead.png'} alt="dead pet :-("/>
         </div>
-          <Button onClick={()=>{this.props.toggleAlive()}} bsSize="large" bsStyle="danger"> Restart </Button>
+          <Button onClick={()=>{this.props.resetPet()}} bsSize="large" bsStyle="danger"> Restart </Button>
       </div>
     )
   }
 }
 //Death Screen
-//TODO: Add try again function- reset all stats to 50 and reset age to now
 
 //TODO: Add Cause of Death
 
