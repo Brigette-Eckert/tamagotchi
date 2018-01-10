@@ -11,11 +11,15 @@ class Actions extends React.Component{
 
 
     this.showConfirmResetModal = this.showConfirmResetModal.bind(this);
+    this.closeConfirmResetModal = this.closeConfirmResetModal.bind(this);
   }
 
   showConfirmResetModal() {
     this.setState({ showModal: true});
-    console.log("show modal")
+  }
+
+  closeConfirmResetModal() {;
+    this.setState({showModal: false});
   }
   render(){
     return(
@@ -32,7 +36,7 @@ class Actions extends React.Component{
             <Modal.Body>
               Are you sure you want to reset to the egg select screen? Your pet's age and statistics will all be reset.
             </Modal.Body>
-            <Modal.Footer>  <Button onClick={()=>{this.props.resetPet()}} id="actions__reset" bsSize="large" bsStyle="danger">Confirm Reset </Button></Modal.Footer>
+            <Modal.Footer> <Button onClick={()=>{this.props.resetPet()}} id="actions__reset" bsSize="large" bsStyle="danger">Confirm Reset </Button> <Button onClick={this.closeConfirmResetModal} bsSize="large" bsStyle="primary"> Cancel </Button></Modal.Footer>
           </Modal>
         </ButtonToolbar>
       </div>
