@@ -5,11 +5,11 @@ import {Button} from 'react-bootstrap';
 
 class Dead extends React.Component {
   render(){
-    let {name} =this.props;
+    let {name, causeOfDeath} =this.props;
 
     return(
       <div className='dead'>
-        <h1> { name } Died of Cause of Death</h1>
+        <h1> { name } Died of { causeOfDeath }</h1>
         <div id="dead__img">
         <img src={'img/dead.png'} alt="dead pet :-("/>
         </div>
@@ -21,6 +21,6 @@ class Dead extends React.Component {
 //Death Screen
 
 //TODO: Add Cause of Death
-
+//TODO: Display All buttons but restart
 
 export default Dead;

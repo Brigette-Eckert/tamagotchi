@@ -21,7 +21,8 @@ class PetContainer extends Component {
       energy: 50,
       hatchDate: new Date(),
       age: 3,
-      alive: true
+      alive: true,
+      causeOfDeath: null
       //now: new Moment(new Date()),
       //age: hatchDate.from(now, true),
     };
@@ -62,25 +63,41 @@ class PetContainer extends Component {
     newState[stat] = current;
     this.setState(newState);
   }
-//set if / else for if reaches zero to trigger death
-  decreaseStats(){
-    let newState ={
+//TODO: Set cause of  Death prop - not working atm
+  decreaseStats() {
+    let stat;
+    let newState = {
       fullness: this.state.fullness - 1,
       happiness: this.state.happiness - 1,
       hygiene: this.state.hygiene - 1,
-      energy: this.state.energy - 1
+      energy: this.state.energy - 1,
     };
-    if((this.state.fullness > 0) && (this.state.happiness > 0) && (this.state.hygiene > 0) && (this.state.energy)){
+
+    let deadState = {
+      alive: false,
+      causeOfDeath: stat,
+    };
+    if ((this.state.fullness > 0) && (this.state.happiness > 0) && (this.state.hygiene > 0) && (this.state.energy)) {
       this.setState(newState);
-    } else {
-      console.log("dead");
+    } else if (this.state.fullness <= 0) {
+      stat = "Starvation";
+      this.setState(deadState);
+    } else if (this.state.happiness <= 0) {
+      stat = "Loneliness";
+      this.setState(deadState);
+    } else if (this.state.hygiene <= 0) {
+      stat = "Stinky";
+      this.setState(deadState);
+    } else if (this.state.energy <= 0) {
+      stat = "Exhaustion";
+      this.setState(deadState);
     }
-
-
   }
 //loose one point from each stat every five minutes
   componentDidMount(){
+    //development/demo interval 3 seconds so can easy see stats decrease
     setInterval(this.decreaseStats, 3000);
+    //live application interval 5 minutes so game is playable - can check in on pet roughly once a day
     // setInterval(this.decreaseStats, 300000);
   }
 
@@ -94,13 +111,13 @@ class PetContainer extends Component {
 
 
   render() {
-    let { name, species, status, age, fullness, happiness, hygiene, energy, alive } = this.state;
+    let { name, species, status, age, fullness, happiness, hygiene, energy, alive, causeOfDeath } = this.state;
       return (
           <div className="PetContainer">
             <Actions setPetStatus={this.setPetStatus} resetPet={this.props.resetPet}/>
-            { !alive && <Dead name={name} toggleAlive={this.toggleAlive} resetPet={this.props.resetPet}/> }
+            { !alive && <Dead name={name} causeOfDeath={causeOfDeath} toggleAlive={this.toggleAlive} resetPet={this.props.resetPet}/> }
             { !!alive && <Info name={name} species={species} age={age}/>}
-            { !!alive && <Pet name={name} status={status} toggleAlive={this.toggleAlive}/> }
+            { !!alive && <Pet name={name} status={status}/> }
             <Stats fullness={fullness} happiness = {happiness} hygiene = {hygiene} energy = {energy}/>
           </div>
       );

@@ -11,8 +11,6 @@ class Pet extends React.Component {
         return(
             <div>
                 <div className="pet__avatar"><img src={`/img/${name}/${status}.png`} alt={name}/></div>
-                {/*Kill button for testing purposes */}
-              <Button onClick={()=>{this.props.toggleAlive()}} bsSize="large" bsStyle="danger"> Play Dead (Totally not real :-D ) </Button>
             </div>
         )
     }
