@@ -15,6 +15,8 @@ class Pet extends React.Component {
     }
 }
 
+
+
 Pet.propTypes = {
     name: PropTypes.string,
     status: PropTypes.string

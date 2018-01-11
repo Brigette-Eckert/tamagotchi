@@ -9,7 +9,8 @@ class Dead extends React.Component {
 
     return(
       <div className='dead'>
-        <h1> { name } Died of { causeOfDeath }</h1>
+        <h1>  RIP </h1>
+        <h1> { name } died of { causeOfDeath }</h1>
         <div id="dead__img">
         <img src={'img/dead.png'} alt="dead pet :-("/>
         </div>
