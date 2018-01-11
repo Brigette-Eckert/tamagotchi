@@ -65,43 +65,38 @@ class PetContainer extends Component {
   }
 //TODO: Set cause of  Death prop - not working atm
   decreaseStats() {
-    let stat;
-    let newState = {
-      fullness: this.state.fullness - 1,
-      happiness: this.state.happiness - 1,
-      hygiene: this.state.hygiene - 1,
-      energy: this.state.energy - 1,
-    };
+    let newState = {};
 
-    let deadState = {
-      alive: false,
-      causeOfDeath: stat,
-    };
     if ((this.state.fullness > 0) && (this.state.happiness > 0) && (this.state.hygiene > 0) && (this.state.energy)) {
-      this.setState(newState);
+      newState = {
+        fullness: this.state.fullness - 1,
+        happiness: this.state.happiness - 1,
+        hygiene: this.state.hygiene - 1,
+        energy: this.state.energy - 1
+      }
     } else if (this.state.fullness <= 0) {
-      stat = "Starvation";
-      this.setState(deadState);
+      newState.alive = false;
+      newState.causeOfDeath = "Starvation";
     } else if (this.state.happiness <= 0) {
-      stat = "Loneliness";
-      this.setState(deadState);
+      newState.alive = false;
+      newState.causeOfDeath = "Loneliness";
     } else if (this.state.hygiene <= 0) {
-      stat = "Stinky";
-      this.setState(deadState);
+      newState.alive = false;
+      newState.causeOfDeath = "Scabies";
     } else if (this.state.energy <= 0) {
-      stat = "Exhaustion";
-      this.setState(deadState);
+      newState.alive = false;
+      newState.causeOfDeath = "Exhaustion";
     }
+
+    this.setState(newState);
   }
 //loose one point from each stat every five minutes
   componentDidMount(){
     //development/demo interval 3 seconds so can easy see stats decrease
-    setInterval(this.decreaseStats, 3000);
+ setInterval(this.decreaseStats, 3000);
     //live application interval 5 minutes so game is playable - can check in on pet roughly once a day
     // setInterval(this.decreaseStats, 300000);
   }
-
-
 
 
   toggleAlive(){
