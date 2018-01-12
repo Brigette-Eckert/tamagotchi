@@ -51,7 +51,7 @@ class PetContainer extends Component {
         stat = 'energy';
         break;
       default:
-        stat = "fullness";
+        stat = null;
     }
 
     let current = this.state[stat];
@@ -80,7 +80,7 @@ class PetContainer extends Component {
       newState.causeOfDeath = "Starvation";
     } else if (this.state.happiness <= 0) {
       newState.alive = false;
-      newState.causeOfDeath = "Loneliness";
+      newState.causeOfDeath = "Boredom";
     } else if (this.state.hygiene <= 0) {
       newState.alive = false;
       newState.causeOfDeath = "Scabies";

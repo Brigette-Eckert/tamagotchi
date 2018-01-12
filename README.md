@@ -2,7 +2,7 @@
 
 ## About 
 
-Tomgotchi built using ReactJS as part of self study following Epicodus curriculum.
+Tomgotchi built using ReactJS.
 
 ## What I learned from this project:
 
