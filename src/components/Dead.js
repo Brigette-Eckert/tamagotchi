@@ -19,9 +19,6 @@ class Dead extends React.Component {
     )
   }
 }
-//Death Screen
 
-//TODO: Add Cause of Death
-//TODO: Display All buttons but restart
 
 export default Dead;

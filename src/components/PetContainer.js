@@ -8,15 +8,14 @@ import Info from './Info.js';
 import Dead from './Dead.js';
 import '../styles/components/PetContainer.css';
 
-class PetContainer extends Component {
-  constructor(props){
+class PetContainer extends Component {constructor(props){
     super(props);
     this.state ={
       name: this.props.pet.name,
       species: this.props.pet.species,
       status: "visit",
       fullness: 50,
-      happiness: 50,
+      happiness: 10,
       hygiene: 50,
       energy: 50,
       hatchDate: new Date(),
@@ -113,8 +112,8 @@ class PetContainer extends Component {
     let { name, species, status, age, fullness, happiness, hygiene, energy, alive, causeOfDeath } = this.state;
       return (
           <div className="PetContainer">
-            <Actions setPetStatus={this.setPetStatus} resetPet={this.props.resetPet}/>
             { !alive && <Dead name={name} causeOfDeath={causeOfDeath} toggleAlive={this.toggleAlive} resetPet={this.props.resetPet}/> }
+            { !!alive && <Actions setPetStatus={this.setPetStatus} resetPet={this.props.resetPet}/>}
             { !!alive && <Info name={name} species={species} age={age}/>}
             { !!alive && <Pet name={name} status={status}/> }
             <Stats fullness={fullness} happiness = {happiness} hygiene = {hygiene} energy = {energy}/>
