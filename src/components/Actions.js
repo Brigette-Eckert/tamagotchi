@@ -46,4 +46,3 @@ class Actions extends React.Component{
 
 export default Actions;
 
-//TODO: Reset to Visit after 5 seconds

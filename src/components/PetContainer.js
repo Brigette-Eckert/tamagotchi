@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import Moment from 'moment';
+import Moment from 'moment';
 import Pet from './Pet.js';
 import Actions from './Actions.js';
 import Stats from './Stats.js';
@@ -15,15 +15,18 @@ class PetContainer extends Component {constructor(props){
       species: this.props.pet.species,
       status: "visit",
       fullness: 50,
-      happiness: 10,
+      happiness: 50,
       hygiene: 50,
       energy: 50,
-      hatchDate: new Date(),
-      age: "time since hatch date",
+      hatchDate: this.props.pet.hatchDate,
+      age: 0,
+      //Not displaying- using toString will return error: cannot read proptpye of undefined
+      // age: this.props.pet.hatchDate,
+      //age: hatchDate - now
       alive: true,
-      causeOfDeath: null
-      //now: new Moment(new Date()),
-      //age: hatchDate.from(now, true),
+      causeOfDeath: null,
+      now: Moment(),
+      //age: this.props.hatchDate.from(this.props.now, true),
     };
     this.setPetStatus = this.setPetStatus.bind(this);
     this.toggleAlive = this.toggleAlive.bind(this);
@@ -94,6 +97,7 @@ class PetContainer extends Component {constructor(props){
 
 //loose one point from each stat every five minutes
   componentDidMount(){
+    console.log(this.state);
     //development/demo interval 8 seconds so can easy see stats decrease
  setInterval(this.decreaseStats, 8000);
     //live application interval 5 minutes so game is playable - can check in on pet roughly once a day
@@ -109,12 +113,12 @@ class PetContainer extends Component {constructor(props){
 
 
   render() {
-    let { name, species, status, age, fullness, happiness, hygiene, energy, alive, causeOfDeath } = this.state;
+    let { name, species, status, age, hatchDate, fullness, happiness, hygiene, energy, alive, causeOfDeath } = this.state;
       return (
           <div className="PetContainer">
             { !alive && <Dead name={name} causeOfDeath={causeOfDeath} toggleAlive={this.toggleAlive} resetPet={this.props.resetPet}/> }
             { !!alive && <Actions setPetStatus={this.setPetStatus} resetPet={this.props.resetPet}/>}
-            { !!alive && <Info name={name} species={species} age={age}/>}
+            { !!alive && <Info name={name} species={species} age={age} hatchDate={hatchDate}/>}
             { !!alive && <Pet name={name} status={status}/> }
             <Stats fullness={fullness} happiness = {happiness} hygiene = {hygiene} energy = {energy}/>
           </div>

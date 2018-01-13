@@ -6,13 +6,16 @@ import './styles/App.css';
 
 const PETS = [{
   name: "Bun",
-  species: "Bunny"
+  species: "Bunny",
+  hatchDate: new Date(),
 }, {
   name: "Pusheen",
-  species: "Delightfully Chubby Cat"
+  species: "Delightfully Chubby Cat",
+  hatchDate: new Date(),
 }, {
   name: "Biscuit",
-  species: "Corgi"
+  species: "Corgi",
+  hatchDate: new Date(),
 }];
 
 
@@ -22,7 +25,7 @@ class App extends Component {
     super(props);
     this.state = {
       firstVisit: true,
-      activePet: null,
+      activePet: null, hatchDate: null
     };
     this.setActivePet = this.setActivePet.bind(this);
     this.resetPet = this.resetPet.bind(this);
@@ -31,9 +34,10 @@ class App extends Component {
   setActivePet(activePet, firstVisit){
     let newState = {
       activePet: activePet,
-      firstVisit: false
+      firstVisit: false,
     };
     this.setState(newState);
+    console.log(newState);
   }
 
   resetPet(activePet, firstVisit){
