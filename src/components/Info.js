@@ -21,5 +21,3 @@ Info.propTypes = {
 
 export default Info;
 
-
-//TODO: Figure out Date Display Error

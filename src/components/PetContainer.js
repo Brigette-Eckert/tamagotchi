@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'moment';
 import Pet from './Pet.js';
 import Actions from './Actions.js';
 import Stats from './Stats.js';
@@ -20,13 +19,10 @@ class PetContainer extends Component {constructor(props){
       energy: 50,
       hatchDate: this.props.pet.hatchDate,
       age: 0,
-      //Not displaying- using toString will return error: cannot read proptpye of undefined
-      // age: this.props.pet.hatchDate,
-      //age: hatchDate - now
       alive: true,
       causeOfDeath: null,
-      now: Moment(),
-      //age: this.props.hatchDate.from(this.props.now, true),
+
+
     };
     this.setPetStatus = this.setPetStatus.bind(this);
     this.toggleAlive = this.toggleAlive.bind(this);
@@ -63,7 +59,9 @@ class PetContainer extends Component {constructor(props){
       current = 100;
     }
     newState[stat] = current;
-    this.setState(newState);
+    this.setState(newState, () => {
+      setTimeout(() => this.setState({status: 'visit'}), 8000);
+    });
   }
 
   decreaseStats() {
@@ -99,9 +97,9 @@ class PetContainer extends Component {constructor(props){
   componentDidMount(){
     console.log(this.state);
     //development/demo interval 8 seconds so can easy see stats decrease
- setInterval(this.decreaseStats, 8000);
+ // setInterval(this.decreaseStats, 8000);
     //live application interval 5 minutes so game is playable - can check in on pet roughly once a day
-    // setInterval(this.decreaseStats, 300000);
+    setInterval(this.decreaseStats, 30000);
   }
 
 
