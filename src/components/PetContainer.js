@@ -29,6 +29,7 @@ class PetContainer extends Component {constructor(props){
     this.toggleAlive = this.toggleAlive.bind(this);
     this.decreaseStats = this.decreaseStats.bind(this);
     this.getTime = this.getTime.bind(this);
+    this.getAge = this.getAge.bind(this);
 
   }
 
@@ -104,6 +105,18 @@ class PetContainer extends Component {constructor(props){
 
   }
 
+  //TODO: Figure out get age function
+
+  getAge(){
+  console.log("hatch date " + this.state.hatchDate);
+  console.log("current date " + this.state.currentDate);
+    let newState = {
+      age: parseInt((this.state.hatchDate - this.state.currentDate))
+    };
+    this.setState(newState);
+    console.log(newState)
+  }
+
 
 //loose one point from each stat every five minutes
   componentDidMount(){
@@ -112,6 +125,7 @@ class PetContainer extends Component {constructor(props){
     //live application interval 5 minutes so game is playable - can check in on pet roughly once a day
     setInterval(this.decreaseStats, 30000);
     setInterval(this.getTime, 5000)
+    setInterval(this.getAge, 5000)
   }
 
 
