@@ -9,7 +9,7 @@ class Info extends React.Component{
         return(
             <div>
                 <h1> {name} the {species}</h1>
-              <h3> Hatch Date: {hatchDate.toLocaleString()} </h3>
+              { hatchDate &&  <h3> Hatch Date: {hatchDate.toLocaleString()} </h3> }
                 <h3> Age:  {age}  </h3>
             </div>)
     }

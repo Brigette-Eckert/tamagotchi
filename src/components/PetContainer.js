@@ -73,7 +73,6 @@ class PetContainer extends Component {constructor(props){
         happiness: this.state.happiness - 1,
         hygiene: this.state.hygiene - 1,
         energy: this.state.energy - 1,
-        status: "visit"
       }
     } else if (this.state.fullness <= 0) {
       newState.alive = false;
