@@ -68,5 +68,4 @@ class App extends Component {
 
 export default App;
 
-//TODO: Setup local storage to remember session info so stats don't reset every time player refreshes/leaves and comes back
-//TODO: Figure out local storage first and then date- will make testing easier
+//TODO: Take difference between hatchdate and current date to get age

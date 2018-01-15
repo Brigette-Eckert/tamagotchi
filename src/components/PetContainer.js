@@ -13,11 +13,12 @@ class PetContainer extends Component {constructor(props){
       name: this.props.pet.name,
       species: this.props.pet.species,
       status: "visit",
-      fullness: 50,
-      happiness: 50,
-      hygiene: 50,
-      energy: 50,
+      fullness: 80,
+      happiness: 80,
+      hygiene: 80,
+      energy: 80,
       hatchDate: this.props.pet.hatchDate,
+      currentDate: null,
       age: 0,
       alive: true,
       causeOfDeath: null,
@@ -27,6 +28,7 @@ class PetContainer extends Component {constructor(props){
     this.setPetStatus = this.setPetStatus.bind(this);
     this.toggleAlive = this.toggleAlive.bind(this);
     this.decreaseStats = this.decreaseStats.bind(this);
+    this.getTime = this.getTime.bind(this);
 
   }
 
@@ -91,14 +93,25 @@ class PetContainer extends Component {constructor(props){
     this.setState(newState);
   }
 
+  //set time now
+  getTime() {
+    let newState = {
+      currentDate: new Date()
+    };
+
+    this.setState(newState);
+    console.log(newState);
+
+  }
+
 
 //loose one point from each stat every five minutes
   componentDidMount(){
-    console.log(this.state);
     //development/demo interval 8 seconds so can easy see stats decrease
  // setInterval(this.decreaseStats, 8000);
     //live application interval 5 minutes so game is playable - can check in on pet roughly once a day
     setInterval(this.decreaseStats, 30000);
+    setInterval(this.getTime, 5000)
   }
 
 
