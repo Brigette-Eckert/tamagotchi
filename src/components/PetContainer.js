@@ -93,7 +93,6 @@ class PetContainer extends Component {constructor(props){
     this.setState(newState);
   }
 
-  //TODO: Figure out get age function
 
   getAge(){
 
@@ -112,7 +111,8 @@ class PetContainer extends Component {constructor(props){
  // setInterval(this.decreaseStats, 8000);
     //live application interval 20 minutes so game is playable - can check in on pet roughly once a day
     setInterval(this.decreaseStats, 1200000);
-    setInterval(this.getAge, 5000)
+    //set to such small timer so loads initially
+    setInterval(this.getAge, 100)
   }
 
 
