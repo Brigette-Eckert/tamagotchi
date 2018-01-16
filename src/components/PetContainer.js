@@ -96,18 +96,13 @@ class PetContainer extends Component {constructor(props){
   //TODO: Figure out get age function
 
   getAge(){
-  console.log("hatch date " + this.state.hatchDate);
-  console.log("current date " + new moment());
-  let diff = moment().subtract(this.state.hatchDate);
+
+  let diff = moment(this.state.hatchDate).from(new moment(), true);
   let ageStr = diff.toString();
     let newState = {
       age:ageStr
     };
     this.setState(newState);
-    console.log(newState);
-    console.log("hatch date: " + this.state.hatchDate);
-    console.log(typeof(diff));
-    console.log(ageStr);
   }
 
 
