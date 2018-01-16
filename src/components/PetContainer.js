@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import Pet from './Pet.js';
 import Actions from './Actions.js';
@@ -13,12 +14,11 @@ class PetContainer extends Component {constructor(props){
       name: this.props.pet.name,
       species: this.props.pet.species,
       status: "visit",
-      fullness: 80,
-      happiness: 80,
-      hygiene: 80,
-      energy: 80,
+      fullness: 90,
+      happiness: 90,
+      hygiene: 90,
+      energy: 90,
       hatchDate: this.props.pet.hatchDate,
-      currentDate: null,
       age: 0,
       alive: true,
       causeOfDeath: null,
@@ -28,7 +28,6 @@ class PetContainer extends Component {constructor(props){
     this.setPetStatus = this.setPetStatus.bind(this);
     this.toggleAlive = this.toggleAlive.bind(this);
     this.decreaseStats = this.decreaseStats.bind(this);
-    this.getTime = this.getTime.bind(this);
     this.getAge = this.getAge.bind(this);
 
   }
@@ -94,27 +93,21 @@ class PetContainer extends Component {constructor(props){
     this.setState(newState);
   }
 
-  //set time now
-  getTime() {
-    let newState = {
-      currentDate: new Date()
-    };
-
-    this.setState(newState);
-    console.log(newState);
-
-  }
-
   //TODO: Figure out get age function
 
   getAge(){
   console.log("hatch date " + this.state.hatchDate);
-  console.log("current date " + this.state.currentDate);
+  console.log("current date " + new moment());
+  let diff = moment().subtract(this.state.hatchDate);
+  let ageStr = diff.toString();
     let newState = {
-      age: parseInt((this.state.hatchDate - this.state.currentDate))
+      age:ageStr
     };
     this.setState(newState);
-    console.log(newState)
+    console.log(newState);
+    console.log("hatch date: " + this.state.hatchDate);
+    console.log(typeof(diff));
+    console.log(ageStr);
   }
 
 
@@ -122,9 +115,8 @@ class PetContainer extends Component {constructor(props){
   componentDidMount(){
     //development/demo interval 8 seconds so can easy see stats decrease
  // setInterval(this.decreaseStats, 8000);
-    //live application interval 5 minutes so game is playable - can check in on pet roughly once a day
-    setInterval(this.decreaseStats, 30000);
-    setInterval(this.getTime, 5000)
+    //live application interval 20 minutes so game is playable - can check in on pet roughly once a day
+    setInterval(this.decreaseStats, 1200000);
     setInterval(this.getAge, 5000)
   }
 

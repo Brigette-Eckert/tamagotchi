@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import PetContainer from "./components/PetContainer";
 import EggContainer from './components/EggContainer.js';
 
@@ -34,7 +35,7 @@ class App extends Component {
   }
 
   setActivePet(activePet){
-    activePet.hatchDate = new Date();
+    activePet.hatchDate = new moment().toString();
     let newState = {
       activePet: activePet,
       firstVisit: false
@@ -67,5 +68,3 @@ class App extends Component {
 }
 
 export default App;
-
-//TODO: Take difference between hatchdate and current date to get age
