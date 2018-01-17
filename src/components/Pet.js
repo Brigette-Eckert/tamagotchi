@@ -9,7 +9,7 @@ class Pet extends React.Component {
         let { name, status } = this.props;
         return(
             <div>
-                <div className="pet__avatar"><img src={`tamagotchi/img/${name}/${status}.png`} alt={name}/></div>
+                <div className="pet__avatar"><img src={`/tamagotchi/img/${name}/${status}.png`} alt={name}/></div>
             </div>
         )
     }

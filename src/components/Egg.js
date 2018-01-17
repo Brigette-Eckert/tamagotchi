@@ -6,7 +6,7 @@ class Egg extends React.Component {
     let {name} = this.props;
     return(
       <div className="eggs">
-        <img onClick={()=>this.props.setActivePet("Bun")} src={`tamagotchi/img/${name}/egg.png`} alt="egg"/>
+        <img onClick={()=>this.props.setActivePet(this.state.activePet)} src={`/tamagotchi/img/${name}/egg.png`} alt="egg"/>
       </div>
       )
   }
