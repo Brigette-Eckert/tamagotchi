@@ -68,3 +68,6 @@ class App extends Component {
 }
 
 export default App;
+
+// TODO: Squash bug that is making it so stats reset to default on decrase stats
+// TODO: Add some media queries

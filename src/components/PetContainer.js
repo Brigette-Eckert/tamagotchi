@@ -10,7 +10,7 @@ import '../styles/components/PetContainer.css';
 
 class PetContainer extends Component {constructor(props){
     super(props);
-    this.state ={
+    this.state = JSON.parse(localStorage.getItem("petState")) || {
       name: this.props.pet.name,
       species: this.props.pet.species,
       status: "visit",
@@ -62,8 +62,13 @@ class PetContainer extends Component {constructor(props){
     }
     newState[stat] = current;
     this.setState(newState, () => {
-      setTimeout(() => this.setState({status: 'visit'}), 8000);
+      setTimeout(() => this.setState({status: 'visit'}, this.syncState), 8000);
     });
+  }
+
+
+  syncState() {
+    localStorage.setItem("petState", JSON.stringify(this.state))
   }
 
   decreaseStats() {
@@ -90,7 +95,7 @@ class PetContainer extends Component {constructor(props){
       newState.causeOfDeath = "Exhaustion";
     }
 
-    this.setState(newState);
+    this.setState(newState, this.syncState);
   }
 
 
@@ -101,7 +106,7 @@ class PetContainer extends Component {constructor(props){
     let newState = {
       age:ageStr
     };
-    this.setState(newState);
+    this.setState(newState, this.syncState);
   }
 
 
@@ -118,7 +123,7 @@ class PetContainer extends Component {constructor(props){
 
 
   toggleAlive(){
-    this.setState({alive: !this.state.alive});
+    this.setState({alive: !this.state.alive}, this.syncState);
   }
 
 
