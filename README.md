@@ -16,6 +16,8 @@ Tomgotchi built using ReactJS.
 
 *  As a user I can check in on my pet
 
+*As a user I can see the age of my pet
+
 * As a user I can feed my pet
 
 * As a user I can play with my pet
