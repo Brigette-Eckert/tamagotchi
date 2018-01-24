@@ -68,6 +68,7 @@ class PetContainer extends Component {constructor(props){
 
 
   syncState() {
+    // console.log(this.state);
     localStorage.setItem("petState", JSON.stringify(this.state))
   }
 
@@ -113,10 +114,9 @@ class PetContainer extends Component {constructor(props){
 //loose one point from each stat every five minutes
   componentDidMount(){
     //development/demo interval 8 seconds so can easy see stats decrease
- // setInterval(this.decreaseStats, 8000);
-    //live application interval 20 minutes so game is playable - can check in on pet roughly once a day
-    setInterval(this.decreaseStats, 1200000);
-    //set to such small timer so loads initially
+ setInterval(this.decreaseStats, 8000);
+    //live application interval 5 minutes so game is playable- only ticks down when page is up
+    // setInterval(this.decreaseStats, 300000);
     setInterval(this.getAge, 100)
   }
 

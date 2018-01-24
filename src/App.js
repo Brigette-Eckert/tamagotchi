@@ -53,6 +53,8 @@ class App extends Component {
       activePet: null,
       firstVisit: true,
     };
+    localStorage.clear();
+    console.log(this.state);
     this.setState(newState, this.syncState);
   }
 
